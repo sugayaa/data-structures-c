@@ -1,18 +1,20 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 #define MAX 112345
 #define ERROR 0
 #define SUCCESS 1
+#define IMPOSSIBLE 0xffffffff
 
 typedef int item_type;
 
 typedef struct node{
     item_type info;
-    struct no *next;
+    struct node *next;
 }node;
 
 void init(node *top){
-    stack->next = NULL;
+    top->next = NULL;
 }
 
 int emptyStack(node *top){
@@ -24,9 +26,9 @@ int push(node *top, item_type value){
     if(!new_node){
         return ERROR;
     }else{
-        new_node->prox = top;
+        new_node->next= top;
         new_node->info = value;
-        *top = new_node;
+        top = new_node;
 
         return SUCCESS;
     }
